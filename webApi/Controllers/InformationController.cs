@@ -57,7 +57,6 @@ namespace webApi.Controllers
                 return previousData;
             }
             return BadRequest();
-
         }
 
         [HttpDelete("{id}")]
