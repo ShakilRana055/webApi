@@ -15,5 +15,6 @@ namespace webApi.Data
         }
 
         public DbSet<Information> Information { get; set; }
+        public DbSet<Address> Address { get; set; }
     }
 }

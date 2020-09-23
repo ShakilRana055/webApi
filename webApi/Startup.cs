@@ -27,12 +27,12 @@ namespace webApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = "Server = DESKTOP-2GQ0D3G\\SQLEXPRESS2019; Database = webApi; Trusted_Connection = true; MultipleActiveResultSets = true";
+            var connectionString = "Server = SHAKILRANA; Database = reactApi; Trusted_Connection = true; MultipleActiveResultSets = true";
 
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connectionString));
 
             services.AddCors();
-
+           
             services.AddControllers();
         }
 

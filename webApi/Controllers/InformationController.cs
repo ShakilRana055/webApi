@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using webApi.Data;
 using webApi.EntityModel;
+using Newtonsoft.Json;
 
 namespace webApi.Controllers
 {
