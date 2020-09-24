@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using webApi.Data;
 
 namespace webApi.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20200924044427_removeList")]
+    partial class removeList
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,8 @@ namespace webApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InformationId");
+                    b.HasIndex("InformationId")
+                        .IsUnique();
 
                     b.ToTable("Address");
                 });
@@ -74,8 +77,8 @@ namespace webApi.Migrations
             modelBuilder.Entity("webApi.EntityModel.Address", b =>
                 {
                     b.HasOne("webApi.EntityModel.Information", "Information")
-                        .WithMany()
-                        .HasForeignKey("InformationId")
+                        .WithOne("Address")
+                        .HasForeignKey("webApi.EntityModel.Address", "InformationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

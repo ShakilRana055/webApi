@@ -26,6 +26,7 @@ namespace webApi.Controllers
             var result =  await _work.Address
                 .Include( x => x.Information)
                 .ToListAsync();
+            
             return result;
         }
 
